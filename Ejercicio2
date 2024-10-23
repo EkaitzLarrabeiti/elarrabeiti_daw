@@ -1,0 +1,87 @@
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("De cuantas posiciones quieres crear tu array?");
+		int posicionesArray = sc.nextInt();
+		
+		int[] array = new int[posicionesArray];
+		
+		System.out.println();
+		System.out.println("A continuación elige el método de inicialización:");
+		System.out.println();
+		System.out.println("1.- Con ceros");
+		System.out.println("2.- Con números aleatorios del 1 al 100");
+		System.out.println("3.- Insertando los números manualmente.");
+		System.out.println();
+		System.out.println("Introduce 1, 2 o 3 por teclado");
+		String opcion = sc.next();
+		
+		switch (opcion) {
+		case "1":
+			
+			//Inicializamos todos los elementos del array a 0
+			for (int i = 0; i < posicionesArray; i++) {
+				array[i] = 0;
+			}
+			
+			System.out.print("[");
+			for (int i = 0; i < array.length; i++) {
+				System.out.print(array[i]); 
+				
+				if(i < array.length-1) {
+					System.out.print(", ");
+				} 
+			}
+			System.out.print("]");
+			
+			break;
+		
+		case "2":
+		
+			Random num = new Random();
+			
+			for (int i = 0; i < posicionesArray; i++) {
+				array[i] = num.nextInt(100);
+			}
+			
+			System.out.print("[");
+			for (int i = 0; i < array.length; i++) {
+				System.out.print(array[i]); 
+				
+				if(i < array.length-1) {
+					System.out.print(", ");
+				} 
+			}
+			System.out.print("]");
+			
+			break;
+		
+		case "3":
+		
+			
+			for (int i = 0; i < posicionesArray; i++) {
+				System.out.println("Introduce el número para la posición " + i+1 + ":");
+				int posicion = sc.nextInt();
+				array[i] = posicion;
+			}
+			
+			System.out.print("[");
+			for (int i = 0; i < array.length; i++) {
+				System.out.print(array[i]); 
+				
+				if(i < array.length-1) {
+					System.out.print(", ");
+				} 
+			}
+			System.out.print("]");
+			
+			break;
+	
+		default:
+			break;
+		}
+		
+		
+
+	}
