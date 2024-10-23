@@ -1,0 +1,28 @@
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Introduce cuantas posiciones deseas que tenga el siguiente array");
+		
+		String entry = sc.next();
+		
+		int longitudArray = Integer.parseInt(entry);
+		
+		int[] array = new int[longitudArray];
+		
+		for (int i = 0; i < longitudArray; i++) {
+			array[i] = 0;
+		}
+		
+		System.out.print("[");
+		for (int i = 0; i < array.length; i++) {
+			System.out.print(array[i]); 
+			
+			if(i < array.length-1) {
+				System.out.print(", ");
+			} 
+		}
+		System.out.print("]");
+
+	}
