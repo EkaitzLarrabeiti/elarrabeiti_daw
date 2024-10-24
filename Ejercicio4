@@ -1,0 +1,243 @@
+
+
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("De cuantas posiciones quieres crear tu array?");
+		int posicionesArray = sc.nextInt();
+		
+		int[] array = new int[posicionesArray];
+		
+		System.out.println();
+		System.out.println("A continuación elige el método de inicialización:");
+		System.out.println();
+		System.out.println("1.- Con ceros");
+		System.out.println("2.- Con números aleatorios del 1 al 100");
+		System.out.println("3.- Insertando los números manualmente.");
+		System.out.println();
+		System.out.println("Introduce 1, 2 o 3 por teclado");
+		String opcion = sc.next();
+		
+		switch (opcion) {
+		case "1":
+		
+				//Inicializamos todos los elementos del array a 0
+				for (int i = 0; i < posicionesArray; i++) {
+					array[i] = 0;
+				}
+				
+				System.out.print("[");
+				for (int i = 0; i < array.length; i++) {
+					System.out.print(array[i]); 
+					
+					if(i < array.length-1) {
+						System.out.print(", ");
+					} 
+				}
+				System.out.print("]");
+			
+			break;
+		
+		case "2":
+		
+			Random num = new Random();
+			
+			for (int i = 0; i < posicionesArray; i++) {
+				array[i] = num.nextInt(100) + 1;
+			}
+			
+			System.out.print("[");
+			for (int i = 0; i < array.length; i++) {
+				System.out.print(array[i]); 
+				
+				if(i < array.length-1) {
+					System.out.print(", ");
+				} 
+			}
+			System.out.print("]");
+			
+			break;
+		
+		case "3":
+		
+			
+			for (int i = 0; i < posicionesArray; i++) {
+				System.out.println("Introduce el número para la posición " + i+1 + ":");
+				int posicion = sc.nextInt();
+				array[i] = posicion;
+			}
+			
+			System.out.print("[");
+			for (int i = 0; i < array.length; i++) {
+				System.out.print(array[i]); 
+				
+				if(i < array.length-1) {
+					System.out.print(", ");
+				} 
+			}
+			System.out.print("]");
+			
+			break;
+	
+		default:
+			System.out.println("Las opciones son 1, 2 o 3");
+			break;
+		}
+		
+		int opcionArray;
+		
+		do {
+		System.out.println("¿Que quieres hacer con tu array?");
+		System.out.println();
+		System.out.println("1.- Cambiar valores de todo el array");
+		System.out.println("2.- Cambiar un valor del array");
+		System.out.println("3.- Reiniciar el array");
+		System.out.println("4.- Mostrar array");
+		System.out.println("5.- Suma");
+		System.out.println("6.- Multiplicación");
+		System.out.println("7.- Media");
+		System.out.println("8.- Factorial de cada valor");
+		System.out.println("9.- Ordenar de mayor a menor");
+		System.out.println("10.- Ordenar de menor a mayor");
+		System.out.println("0.- Salir");
+		
+		opcionArray = sc.nextInt();
+		
+		switch (opcionArray) {
+		case 1:
+			
+			for (int i = 0; i < posicionesArray; i++) {
+				System.out.println("Introduce el número para la posición " + i+1 + ":");
+				int posicion = sc.nextInt();
+				array[i] = posicion;
+			}
+			
+			System.out.print("[");
+			for (int i = 0; i < array.length; i++) {
+				System.out.print(array[i]); 
+				
+				if(i < array.length-1) {
+					System.out.print(", ");
+				} 
+			}
+			System.out.print("]");
+			
+			break;
+			
+		case 2:
+			
+			System.out.println("¿Que posicion quieres cambiar?");
+			int posicion = sc.nextInt();
+			System.out.println("¿Cual es el número que quieres introducir?");
+			int num = sc.nextInt();
+			
+			array[posicion] = num;
+			
+			break;
+		
+		case 3:
+			
+			for (int i = 0; i < posicionesArray; i++) {
+				array[i] = 0;
+			}
+			
+			System.out.print("[");
+			for (int i = 0; i < array.length; i++) {
+				System.out.print(array[i]); 
+				
+				if(i < array.length-1) {
+					System.out.print(", ");
+				} 
+			}
+			System.out.print("]");
+			
+			
+			break;
+			
+		case 4:
+			
+			System.out.print("[");
+			for (int i = 0; i < array.length; i++) {
+				System.out.print(array[i]); 
+				
+				if(i < array.length-1) {
+					System.out.print(", ");
+				} 
+			}
+			System.out.print("]");
+			
+			break;
+			
+		case 5:
+			
+			int resultadoSuma = 0;
+			for (int i = 0; i < array.length; i++) {
+				resultadoSuma += array[i];
+			}
+			
+			System.out.println("La suma de los elemento del array es: " + resultadoSuma);
+			
+			break;
+			
+		case 6:
+			
+			int resultadoMulti = 1; //Inicializar a 1 porque vamos a multiplicar
+			for (int i = 0; i < array.length; i++) {
+				resultadoMulti *= array[i];
+			}
+			
+			System.out.println("La suma de los elemento del array es: " + resultadoMulti);
+			
+			break;
+			
+		case 7:
+			
+			int resultadoSumaMedia = 0;
+			for (int i = 0; i < array.length; i++) {
+				resultadoSumaMedia += array[i];
+			} 
+			//posicionesArray es la cantidad de números que hay en el array, podríamos usar array.length + 1
+		double media = resultadoSumaMedia / posicionesArray; 
+			System.out.println("La suma de los elemento del array es: " + resultadoSumaMedia);
+			
+			break;
+			
+		case 8: //Factorial de cada valor
+			
+			double resultadoFactorial = 1; //Inicializar a 1 porque vamos a multiplicar
+			int numero = 0;
+			
+			for (int i = 0; i < array.length; i++) {
+				numero = array[i];				
+				
+				
+				for (int x = 1; x <= numero; i++) {
+					resultadoFactorial *= x;
+				}
+			}
+			System.out.println("El resultado del factorial de " + numero + " es " + resultadoFactorial);
+			
+			break;
+			
+		case 9: //Ordenar de mayor a menor
+			
+			Arrays.sort(array);
+			
+			break;
+			
+		case 10: //De menor a mayor
+			
+			//Falta por hacer
+			
+			break;
+		case 0:
+			
+			break;
+
+		default:
+			System.out.println("Opción fuera del rango");
+			break;
+		}
+
+		}while(opcionArray!=0);
+		
+		System.out.println("Saliendo del programa...");
